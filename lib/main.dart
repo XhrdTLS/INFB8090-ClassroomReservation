@@ -18,6 +18,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 2, 66, 124)),
+          useMaterial3: true,
+        ),
+        title: "Mi Reserva UTEM",
+        home: MyHomePage(title: "Mi Reserva UTEM")
+        );
   }
 }
