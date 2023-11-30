@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "180418767398",
+    "project_id": "app-classroom-bfbcd",
+    "storage_bucket": "app-classroom-bfbcd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180418767398:android:0924e42c835c9a0d0bd4e7",
+        "android_client_info": {
+          "package_name": "cl.utem.beta_reservation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180418767398-8cffiv0n5uuo5f3u7mi7cu0ccbqvilvc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.utem.beta_reservation",
+            "certificate_hash": "ad67fcb3cb72763958e1d6d7a89550974209b14e"
+          }
+        },
+        {
+          "client_id": "180418767398-tkom481ujlr9fv0pc224n61j3miufc81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbwRnm18bv3OB26vewR9UUvySq4_570_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180418767398-tkom481ujlr9fv0pc224n61j3miufc81.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "180418767398-15k24dsue0cfl10u4n1qjbn50tcopebt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.classroomReservation"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
