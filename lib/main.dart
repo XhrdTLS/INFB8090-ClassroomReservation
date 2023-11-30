@@ -1,31 +1,24 @@
+import 'package:mi_reserve/screens/login_screen.dart';
 import 'package:flutter/material.dart';
-//import 'package:classroom_reservation/screens/login.dart';
-import 'package:classroom_reservation/screens/home.dart';
-
-// ...
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color.fromARGB(255, 2, 66, 124)),
-          useMaterial3: true,
-        ),
-        title: "Mi Reserva UTEM",
-        home: MyHomePage(title: "Mi Reserva UTEM")
-        );
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 2, 66, 124)),
+        useMaterial3: true,
+      ),
+      title: 'Mi Reserva UTEM',
+      home: const LoginScreen(),
+    );
   }
 }
