@@ -26,7 +26,8 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                          builder: (context) =>
+                              const MyHomePage(title: 'Mi Reserva UTEM')));
                 } else {
                   _logger.f("F");
                   Navigator.push(
