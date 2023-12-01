@@ -25,11 +25,10 @@ class BottomNavigationApp extends StatefulWidget {
 }
 
 class _BottomNavigationAppState extends State<BottomNavigationApp> {
-  int currentPageIndex = 0;
+  int currentPageIndex = 1;
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
