@@ -17,7 +17,7 @@ class MiMenu extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const MyHomePage(title: '')));
+                        builder: (context) => const HomePage()));
               }),
           ListTile(
             leading: const Icon(Icons.logout),

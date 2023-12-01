@@ -1,3 +1,4 @@
+import 'package:mi_reserve/screens/testnavbar.dart';
 import 'package:mi_reserve/services/google_service.dart';
 import 'package:mi_reserve/services/room_service.dart';
 import 'package:mi_reserve/widgets/navbar.dart';
@@ -5,17 +6,15 @@ import 'package:mi_reserve/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int currentPageIndex = 0;
+class _HomePageState extends State<HomePage> {
+  int currentPageIndex = 1;
 
   static final Logger _logger = Logger();
 
@@ -23,7 +22,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(), //por eliminar
-        bottomNavigationBar: const MyNavBar(),
         body: SafeArea(
           top: true,
           child: Padding(
@@ -57,7 +55,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                   ),
                 ),
-              )
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BottomNavigationApp()));
+                  },
+                  child: const Text('navbar'))
             ]),
           ),
         ));

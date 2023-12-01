@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mi_reserve/screens/account_screen.dart';
+import 'package:mi_reserve/views/account.dart';
 import 'package:mi_reserve/screens/home_screen.dart';
-import 'package:mi_reserve/screens/reserve.dart';
-
-int currentPageIndex = 0;
+import 'package:mi_reserve/views/reserve.dart';
 
 class MyNavBar extends StatefulWidget {
   const MyNavBar({super.key});
@@ -13,42 +11,15 @@ class MyNavBar extends StatefulWidget {
 }
 
 class _MyNavBarState extends State<MyNavBar> {
+  // pantallas para ser llamadas
+  int currentPageIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
       labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
       selectedIndex: currentPageIndex,
-      onDestinationSelected: (int index) {
-        setState(() {
-          currentPageIndex = index;
-          if (index == 0) {
-            Navigator.push(
-              context,
-              PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      const ReservePage(),
-                  transitionsBuilder:
-                      (context, animation, secondaryAnimation, child) {
-                    return FadeTransition(
-                      opacity: animation,
-                      child: child,
-                    );
-                  }),
-            );
-          }
-          if (index == 1) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const MyHomePage(title: 'Home Page')));
-          }
-          if (index == 2) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const AccountPage()));
-          }
-        });
-      },
+      onDestinationSelected: (int index) {},
       destinations: const <Widget>[
         NavigationDestination(
           icon: Icon(Icons.calendar_today),

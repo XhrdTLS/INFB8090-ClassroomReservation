@@ -18,6 +18,7 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(),
         bottomNavigationBar: const MyNavBar(),
         body: SafeArea(
           top: true,
