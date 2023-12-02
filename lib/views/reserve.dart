@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:mi_reserve/services/google_service.dart';
 import 'package:mi_reserve/services/room_service.dart';
-import 'package:mi_reserve/widgets/get_salas.dart';
+import 'package:mi_reserve/setters/get_rooms.dart';
+import 'package:mi_reserve/setters/post_reserve.dart';
+import 'package:mi_reserve/views/request_reserve.dart';
 
 Color primaryBlue = const Color.fromARGB(255, 2, 66, 124);
 
@@ -50,17 +51,35 @@ class ReservePage extends StatelessWidget {
                 ],
               ),
             ),
+            ElevatedButton(
+                onPressed: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PostReserve(
+                                onSubmit:
+                                    (roomCode, date, start, quantity) async {},
+                              )));
+                },
+                child: Text('Nueva Reserva'))
           ]),
         ),
       ),
+
+      /// Botón que revisa las salas disponibles
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           String jwt = await GoogleService.getData('idToken');
           List<dynamic> respuesta = await ApiSalas.getRooms(jwt);
           if (respuesta.isNotEmpty) {
-            GetRooms(rooms: respuesta);
+            // ignore: use_build_context_synchronously
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => GetRooms(rooms: respuesta),
+              ),
+            );
           } else {
-            // Puedes manejar el caso donde no se obtienen salas
             // ignore: use_build_context_synchronously
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
@@ -69,8 +88,8 @@ class ReservePage extends StatelessWidget {
             );
           }
         },
-        icon: const Icon(Icons.settings_backup_restore_rounded),
-        label: const Text('Actualizar'),
+        icon: const Icon(Icons.remove_red_eye_rounded),
+        label: const Text('Ver Salas Disponibles'),
       ),
     );
   }

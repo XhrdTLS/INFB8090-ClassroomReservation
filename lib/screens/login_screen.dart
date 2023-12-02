@@ -1,4 +1,3 @@
-import 'package:http/http.dart';
 import 'package:mi_reserve/screens/error_screen.dart';
 import 'package:mi_reserve/widgets/navigator_bar.dart';
 import 'package:mi_reserve/services/google_service.dart';
@@ -13,6 +12,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 0, 65, 123),
       body: Padding(
         padding: const EdgeInsets.all(30),
         child: Column(
@@ -30,7 +30,10 @@ class LoginScreen extends StatelessWidget {
             const Text(
               textAlign: TextAlign.center,
               'Inicia Sesión con google para comenzar a Reservar Salas',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
 
             const SizedBox(

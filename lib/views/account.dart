@@ -62,7 +62,7 @@ class _AccountPageState extends State<AccountPage> {
 
             /// Información recuperada de Google
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               height: 200,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -95,7 +95,27 @@ class _AccountPageState extends State<AccountPage> {
                             style: TextStyle(
                                 color: primaryBlue,
                                 fontSize: 20,
-                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold),
+                          );
+                        } else if (snapshot.hasError) {
+                          _logger.e('${snapshot.error}');
+                          return const Text('Hola!');
+                        } else {
+                          return const CircularProgressIndicator();
+                        }
+                      },
+                    ),
+                  ),
+                  Center(
+                    child: FutureBuilder<String>(
+                      future: GoogleService.getData('email'),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return Text(
+                            '${snapshot.data}',
+                            style: TextStyle(
+                                color: primaryBlue,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           );
                         } else if (snapshot.hasError) {
