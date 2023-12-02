@@ -2,41 +2,92 @@ import 'package:mi_reserve/services/google_service.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-class HomeScreen extends StatelessWidget {
-  static final Logger _logger = Logger();
+Color primaryBlue = const Color.fromARGB(255, 2, 66, 124);
 
-  const HomeScreen({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int currentPageIndex = 1;
+  static final Logger _logger = Logger();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: FutureBuilder<String>(
-                future: GoogleService.getData('nombre'),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    return Text('${snapshot.data}');
-                  } else if (snapshot.hasError) {
-                    _logger.e('${snapshot.error}');
-                    return const Text('Nombre');
-                  } else {
-                    return const CircularProgressIndicator();
-                  }
-                })),
-        body: Center(
-          child: ClipOval(
-            child: FutureBuilder<String>(
-                future: GoogleService.getData('foto'),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    return Image.network('${snapshot.data}');
-                  } else if (snapshot.hasError) {
-                    return const Icon(Icons.error);
-                  } else {
-                    return const CircularProgressIndicator();
-                  }
-                }),
-          ),
-        ));
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+      ),
+      body: SafeArea(
+        top: true,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                  border: Border.all(
+                    color: primaryBlue,
+                    width: 3,
+                  ),
+                  borderRadius: BorderRadius.circular(20)),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Center(
+                    child: FutureBuilder<String>(
+                      future: GoogleService.getData('nombre'),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return Text(
+                            '${snapshot.data}',
+                            style: TextStyle(
+                                color: primaryBlue,
+                                fontSize: 20,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold),
+                          );
+                        } else if (snapshot.hasError) {
+                          _logger.e('${snapshot.error}');
+                          return const Text('Hola!');
+                        } else {
+                          return const CircularProgressIndicator();
+                        }
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 3.0,
+                  ),
+                  const Text(
+                    '¡Que bueno verte!',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(
+                    height: 5.0,
+                  ),
+                  const Text(
+                      'Reserva salas de clases, de forma sencilla en un solo lugar, cancela o agenda cuando quieras')
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 350,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('lib/assets/schedule_app.png'),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            )
+          ]),
+        ),
+      ),
+    );
   }
 }
