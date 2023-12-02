@@ -63,7 +63,7 @@ class _AccountPageState extends State<AccountPage> {
             /// Información recuperada de Google
             Container(
               padding: const EdgeInsets.all(20),
-              height: 200,
+              height: 350,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
