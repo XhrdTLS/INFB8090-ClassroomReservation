@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mi_reserve/services/google_service.dart';
 import 'package:mi_reserve/services/room_service.dart';
+import 'package:mi_reserve/setters/cancel_reserve.dart';
+import 'package:mi_reserve/setters/get_reserve.dart';
 import 'package:mi_reserve/setters/get_rooms.dart';
 import 'package:mi_reserve/setters/post_reserve.dart';
-import 'package:mi_reserve/views/request_reserve.dart';
+import 'package:mi_reserve/setters/search_reserve.dart';
 
 Color primaryBlue = const Color.fromARGB(255, 2, 66, 124);
 
@@ -51,6 +53,9 @@ class ReservePage extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             ElevatedButton(
                 onPressed: () async {
                   Navigator.push(
@@ -61,7 +66,76 @@ class ReservePage extends StatelessWidget {
                                     (roomCode, date, start, quantity) async {},
                               )));
                 },
-                child: Text('Nueva Reserva'))
+                child: const Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.add,
+                      weight: 10,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Nueva Reserva',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                )),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchReserve(
+                                onSubmit:
+                                    (roomCode, bookingToken, date) async {},
+                              )));
+                },
+                child: const Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.search,
+                      weight: 10,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Buscar Reserva',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                )),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CancelReserve(
+                                onSubmit: (token, roomCode) async {},
+                              )));
+                },
+                child: const Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.cancel_outlined,
+                      weight: 10,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Cancelar Reserva',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ))
           ]),
         ),
       ),

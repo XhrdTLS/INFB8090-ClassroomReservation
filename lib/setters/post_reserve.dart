@@ -62,25 +62,25 @@ class _PostReserveState extends State<PostReserve> {
               TextFormField(
                 controller: roomCodeController,
                 decoration: const InputDecoration(
-                    labelText: 'Código de Sala', hintText: 'hola mundo'),
+                    labelText: 'Código de Sala', hintText: 'ejemplo: B01'),
                 validator: roomCodeValidator,
               ),
               TextFormField(
                 controller: dateController,
                 decoration: const InputDecoration(
-                    labelText: 'Fecha', hintText: 'hola mundo'),
+                    labelText: 'Fecha', hintText: 'ejemplo: yyyy-mm-dd'),
                 validator: dateValidator,
               ),
               TextFormField(
                 controller: startController,
                 decoration: const InputDecoration(
-                    labelText: 'Inicio', hintText: 'hola mundo'),
+                    labelText: 'Inicio', hintText: 'ejemplo: hh:mm:ss '),
                 validator: startValidator,
               ),
               TextFormField(
                 controller: quantityController,
                 decoration: const InputDecoration(
-                    labelText: 'Cantidad', hintText: 'hola mundo'),
+                    labelText: 'Personas', hintText: 'ejemplo: 1, 2 ...'),
                 validator: quantityValidator,
               ),
               const SizedBox(height: 16),

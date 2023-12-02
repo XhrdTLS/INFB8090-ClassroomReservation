@@ -33,12 +33,12 @@ class _SearchReserveState extends State<SearchReserve> {
             TextField(
               controller: roomCodeController,
               decoration: const InputDecoration(
-                  labelText: 'Código de Sala', hintText: 'hola mundo'),
+                  labelText: 'Código de Sala', hintText: 'ejemplo: B01'),
             ),
             TextField(
               controller: bookingTokenController,
-              decoration: const InputDecoration(
-                  labelText: 'Token', hintText: 'hola mundo'),
+              decoration:
+                  const InputDecoration(labelText: 'Token', hintText: 'token'),
             ),
             TextField(
               controller: dateController,
@@ -63,14 +63,6 @@ class _SearchReserveState extends State<SearchReserve> {
                 };
                 List<dynamic> respuesta =
                     await ApiReserve.reserveSearch(jwt, requestBody);
-
-                // ignore: use_build_context_synchronously
-                /* Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => (reserve: respuesta),
-                  ),
-                );*/
               },
               child: const Text('Enviar Datos'),
             ),

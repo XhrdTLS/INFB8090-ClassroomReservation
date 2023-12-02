@@ -43,13 +43,13 @@ class _GetReserveState extends State<GetReserve> {
             TextFormField(
               controller: roomCodeController,
               decoration: const InputDecoration(
-                  labelText: 'Código de Sala', hintText: 'hola mundo'),
+                  labelText: 'Código de Sala', hintText: 'ejemplo: B01'),
               validator: roomCodeValidator,
             ),
             TextFormField(
               controller: startController,
               decoration: const InputDecoration(
-                  labelText: 'Fecha', hintText: 'hola mundo'),
+                  labelText: 'Fecha', hintText: 'ejemplo: yyyy-mm-dd'),
               validator: startValidator,
             ),
             const SizedBox(height: 16),
